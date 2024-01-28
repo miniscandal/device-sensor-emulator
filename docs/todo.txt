@@ -1,0 +1,63 @@
+✰
+
+En las fúnciones que requieren el uso de variables de entorno, no es necesario
+validar que no sean de tipo ‘None’, ya que la validación de dichas variables
+se implementará al iniciar el script. Se verificará que estén correctamente
+configuradas. En caso de que las variables de entorno no estén adecuadamente
+establecidas, se mostrará un mensaje de error y el script se cerrará, impidiendo
+la realización de cualquier proceso.
+
+✰
+Implementar la funcionalidad para escuchar las publicaciones en el tema general.
+
+✰
+Refactorizar la implementación de constantes: Revisar y mejorar la organización
+de las constantes en el código. Considerar la posibilidad de agrupar constantes
+relacionadas y asegurarse de que están bien documentadas.
+Documentar las constantes, proporcionar informacion para saber su proposito.
+
+
+✰
+Optimizar la lógica de secuencia: Revisar la lógica de secuencia en el código
+para identificar áreas de mejora. Esto puede incluir la simplificación de la
+lógica, la eliminación de redundancias y la mejora de la legibilidad.
+
+✰
+Command line for test and configuration environment:
+
+.\mosquitto_pub -t "device/1" -m '{"procedure_code_request": 5}'
+.\mosquitto_pub -t "device/1" -m '{"procedure_code_request": 5, "device_id": 2}'
+Get-ChildItem -Path ".\" -Recurse -Filter "__pycache__" -Directory | Remove-Item -Recurse -Force
+
+
+
+/** ************************************************************************ **/
+
+           __-----_.                        ________
+          /  \      \           o  O  O   _(        )__
+         /    |  |   \_---_   o._.      _(             )_
+        |     |            \   | |""""(_   Hello World!  )
+        |     |             |@ | |    (_               _)
+         \___/   ___       /   | |      (__          _)
+           \____(____\___/     | |         (________)
+           |__|                | |          |
+           /   \-_             | |         |'
+         /      \_ "__ _       !_!--v---v--"
+        /         "|  |>)      |""""""""|
+       |          _|  | ._--""||        |
+       _\_____________|_|_____||________|_
+      /                                   \
+     /_____________________________________\
+     /                                     \
+    /_______________________________________\
+    /                                       \
+   /_________________________________________\
+        {                               }
+        <_______________________________|
+        |                               >
+        {_______________________________|               ________
+        <                               }              / MINIMI \
+        |_______________________________|             /__________\
+\|/       \\/             \||//           |//                       \|/    |/
+
+/** ************************************************************************ **/
