@@ -7,6 +7,7 @@ Genera y transmite parámetros ficticios mediante publicaciones MQTT.
 
 ## Recomendación importante
 ≧◠‿◠≦
+
 La transmisión de información, sin importar el medio empleado, debe asegurar  
 la privacidad y seguridad. Esto conlleva la implementación de medidas como el  
 cifrado de datos y la autenticación de clientes o usuarios.
@@ -17,7 +18,7 @@ un entorno de producción sin realizar las adecuaciones de seguridad necesarias.
 
 
 ## Configuración de desarrollo
- ≧◠‿◠≦
+≧◠‿◠≦
 
 ### Requisitos previos
 
@@ -28,7 +29,7 @@ un entorno de producción sin realizar las adecuaciones de seguridad necesarias.
    * Crea un archivo de configuración mosquitto.conf en un directorio de tu  
    elección con estos parametros.
 
-      ```
+      ```ini
       listener 1883
       protocol  mqtt
 
@@ -56,14 +57,14 @@ cd .\encode-decode-message-jwt\
 
 #### Habilitar entorno virtual
 
-```
+```bash
 python -m venv .\venv
 .\venv\Scripts\activate
 ```
 
 #### Instalar módulos requeridos
 
-```
+```bash
 pip install -r requirements.txt`
 ```
 
@@ -93,7 +94,7 @@ python .\src\main.py -i 1 -s 2
 
 
 ## Documentación 
- ≧◠‿◠≦
+≧◠‿◠≦
 
 
 ### Tecnologías utilizadas
