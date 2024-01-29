@@ -3,6 +3,7 @@
 Esta herramienta de terminal simula la funcionalidad de un dispositivo sensor.  
 Genera y transmite parámetros ficticios mediante publicaciones MQTT.
 
+<img src="./docs/pictures/terminal-capture.png" width="540">
 
 ## Recomendación importante
 ≧◠‿◠≦
