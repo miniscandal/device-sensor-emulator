@@ -45,4 +45,5 @@ def on_connect(
     )
     client.user_data_set(userdata)
     client.callback_on_publish = callback_on_publish
+    client.enable_parameter_publish = True
     inform_control_system(client=client, userdata=userdata)

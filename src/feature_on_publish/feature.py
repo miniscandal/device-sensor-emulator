@@ -15,7 +15,7 @@ def on_publish(
     client: CustomMqttClient,
     userdata: dict[str, str | int],
     mid: int,
-):
+) -> None:
     if client.callback_on_publish is None:
         return
 

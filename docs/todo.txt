@@ -1,5 +1,8 @@
 ✰
+Tipar la clase CustoMqttClient
 
+
+✰
 En las fúnciones que requieren el uso de variables de entorno, no es necesario
 validar que no sean de tipo ‘None’, ya que la validación de dichas variables
 se implementará al iniciar el script. Se verificará que estén correctamente

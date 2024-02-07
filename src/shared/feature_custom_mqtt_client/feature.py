@@ -18,7 +18,7 @@ import paho.mqtt.client as mqtt
 class CustomMqttClient(mqtt.Client):
     def __init__(self):
         super().__init__()
-        self._enable_parameter_publish: bool = True
+        self._enable_parameter_publish: bool = False
         self._callback_on_publish: Any = "Evie"
 
     @property

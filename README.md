@@ -24,7 +24,7 @@ un entorno de producción sin realizar las adecuaciones de seguridad necesarias.
 
 * Conocimientos básicos de terminal y línea de comandos
 * Tener instalado [Python](https://www.python.org/) en tu sistema que incluye [PIP](https://pypi.org/project/pip/)
-* Tener instalado [Mosquitto](https://https://mosquitto.org//) en tu sistema
+* Tener instalado [Mosquitto](https://mosquitto.org/) en tu sistema
 * Configurar un Broker para administrar los procesos MQTT
    * Crea un archivo de configuración mosquitto.conf en un directorio de tu  
    elección con estos parametros.
@@ -109,7 +109,7 @@ python .\src\main.py -i 1 -s 2
 ### Referencias
 
 * [Python](https://www.python.org/)
-* [Mosquitto](https://https://mosquitto.org//) 
+* [Mosquitto](https://mosquitto.org/) 
 
 
 
@@ -166,7 +166,7 @@ en una posición privilegiada para elevar este proyecto a nuevas alturas de éxi
 
 #### Recursos de código abierto
 
-* [Mosquitto](https://https://mosquitto.org//):
+* [Mosquitto](https://mosquitto.org/)  
   Broker de mensajes que implementa el protocolo MQTT.
 
 Agradecemos a los autores de estas bibliotecas por su trabajo y contribución  

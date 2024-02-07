@@ -18,9 +18,13 @@ from shared.feature_inform_control_system.feature import publish_message
 from shared.constants.constants import PARAMETER_HUMIDITY
 from shared.constants.constants import PARAMETER_TEMPERATURE
 from shared.constants.constants import PARAMETER_TIMESTAMP
-from shared.constants.constants import PARAMETER_DEVICE_ID
 from shared.constants.constants import ENV_MQTT_TOPIC_PUBLISH
 from shared.constants.constants import ENV_DEVICE_ID
+from shared.constants.constants import USERDATA_PROPERTY_STATUS_CODE
+from shared.constants.constants import USERDATA_PROPERTY_PROCEDURE_CODE
+from shared.constants.constants import USERDATA_PROPERTY_DEVICE_ID
+from shared.constants.constants import STATUS_CODE_REPORTED_PARAMETERS
+from shared.constants.constants import PROCEDURE_CODE_REPORT_PARAMETERS
 
 
 def calculate_parameters() -> dict[str, float | str]:
@@ -41,7 +45,12 @@ def calculate_parameters() -> dict[str, float | str]:
 def publish_parameters(client: CustomMqttClient) -> None:
     topic = os.getenv(ENV_MQTT_TOPIC_PUBLISH)
     device_id = os.getenv(ENV_DEVICE_ID)
-    parameters = calculate_parameters()
-    parameters.update({PARAMETER_DEVICE_ID: device_id})  # type: ignore
-    message = json.dumps(parameters)
+    parameters: dict[str, float | str | int] = calculate_parameters()
+    data: dict[str, float | str | int] = {
+        USERDATA_PROPERTY_DEVICE_ID: device_id,  # type: ignore
+        USERDATA_PROPERTY_STATUS_CODE: STATUS_CODE_REPORTED_PARAMETERS,
+        USERDATA_PROPERTY_PROCEDURE_CODE: PROCEDURE_CODE_REPORT_PARAMETERS,
+        **parameters,
+    }
+    message = json.dumps(data)
     publish_message(client, message, topic)  # type: ignore
