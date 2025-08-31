@@ -1,0 +1,22 @@
+Testing (Device IoT Emulator)
+
+⚝✰ Must retain a message so that it is delivered when the device disconnects.
+✰ When the IoT device received the message retained by the sensor monitoring
+client, it mus respond with its current status.
+✰
+✰
+✰
+
+
+{
+  "device_id": "1",
+  "status": {
+    "code": 107,
+    "procedure": 7
+  },
+  "metrics": {
+    "temperature_c": 80.1,
+    "humidity_pct": 46.26
+  },
+  "timestamp_utc": "2025-08-29T22:05:18.887742Z"
+}
