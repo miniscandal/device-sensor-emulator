@@ -16,15 +16,6 @@ STATUS_CODE_UPDATED_PROPERTIES = 105
 STATUS_CODE_REPORTED_STATUS = 106
 STATUS_CODE_REPORTED_PARAMETERS = 107
 
-
-"""
-Messages arguments help.
-"""
-
-HELP_MSG_DEVICE_ID_ARG = "Unique device identifier."
-HELP_MSG_SECONDS_ARG = "Interval in seconds to repeat a publish."
-
-
 """
 Device procedure code.
 """
