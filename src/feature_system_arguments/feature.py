@@ -1,44 +1,48 @@
 """
 Module responsibility:
 
-Argument configuration: It sets up the necessary arguments for the script.
+This module is responsible for configuring and parsing command-line arguments.
 
-Argument parsing: It parses the arguments passed to the script and returns
-them in a structured format.
+- Argument configuration: Defines the available CLI arguments, their types,
+  and their help messages.
+- Argument parsing: Parses the provided CLI arguments and returns them in a
+  structured format (argparse.Namespace), making them accessible within the
+  application.
 """
-
-# pylint:disable=import-error
-# pylint:disable=missing-function-docstring
 
 import argparse
 
-from shared.constants.constants import HELP_MSG_DEVICE_ID_ARG
-from shared.constants.constants import HELP_MSG_SECONDS_ARG
+from feature_system_arguments.constants.messages_args_help import HELP_MSG_DEVICE_ID_ARG
+from feature_system_arguments.constants.messages_args_help import HELP_MSG_SECONDS_ARG
 
 
-def configuration_arguments_parser() -> argparse.ArgumentParser:
-    argument_parser = argparse.ArgumentParser()
-
-    argument_parser.add_argument(
-        "-i", "--device_id", required=True, type=int, help=HELP_MSG_DEVICE_ID_ARG
+def configuration_arguments_parser(
+    device_id_help: str = HELP_MSG_DEVICE_ID_ARG,
+    publish_interval_help: str = HELP_MSG_SECONDS_ARG,
+) -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-i", "--device_id", required=True, type=int, help=device_id_help
     )
-    argument_parser.add_argument(
-        "-s",
-        "--seconds",
-        required=True,
-        type=int,
-        help=HELP_MSG_SECONDS_ARG,
+    parser.add_argument(
+        "-s", "--publish_interval", required=True, type=int, help=publish_interval_help
     )
+    return parser
 
-    return argument_parser
 
+def system_arguments(
+    device_id_help: str = HELP_MSG_DEVICE_ID_ARG,
+    publish_interval_help: str = HELP_MSG_SECONDS_ARG,
+) -> argparse.Namespace:
+    """Parse and return system arguments.
 
-def system_arguments() -> argparse.Namespace:
+    Args:
+        device_id_help (str): Help message for the device_id argument.
+        publish_interval_help (str): Help message for the publish interval argument.
+
+    Returns:
+        argparse.Namespace: Parsed command-line arguments.
     """
-    return:
-        argparse.Namespace: namespace containing the parsed arguments.
-    """
+    parser = configuration_arguments_parser(device_id_help, publish_interval_help)
 
-    sys_arguments = configuration_arguments_parser()
-
-    return sys_arguments.parse_args()
+    return parser.parse_args()
