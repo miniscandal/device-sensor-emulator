@@ -10,11 +10,9 @@ proper configuration and operation.
 
 import os
 
-from shared.constants.constants import ENV_MQTT_PRIVATE_TOPIC_SUBSCRIBE
-from shared.constants.constants import ENV_DEVICE_ID
+from shared.constants.config import MQTT_TOPIC_DEVICE
 
 
 def update_env_device_id(device_id: int) -> None:
-    env = os.getenv(ENV_MQTT_PRIVATE_TOPIC_SUBSCRIBE)
-    os.environ[ENV_MQTT_PRIVATE_TOPIC_SUBSCRIBE] = env.format(id=device_id)  # type: ignore
-    os.environ[ENV_DEVICE_ID] = str(device_id)
+    os.environ["MQTT_TOPIC_DEVICE"] = MQTT_TOPIC_DEVICE.format(id=device_id)
+    os.environ["DEVICE_ID"] = str(device_id)

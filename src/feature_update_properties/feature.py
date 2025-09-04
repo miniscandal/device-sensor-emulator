@@ -25,7 +25,6 @@ from shared.constants.constants import USERDATA_PROPERTY_PROCEDURE_CODE
 from shared.constants.constants import MSG_UPDATE_PROPERTIES
 from shared.constants.constants import STATUS_CODE_UPDATED_PROPERTIES
 from shared.constants.constants import PROCEDURE_CODE_UPDATE_PROPERTIES
-from shared.constants.constants import ENV_DEVICE_ID
 
 
 def callback_on_publish(
@@ -46,7 +45,7 @@ def update_properties(
     payload = json.loads(message.payload.decode("utf-8"))
     new_device_id = payload.get(USERDATA_PROPERTY_DEVICE_ID)
     update_env_device_id(device_id=new_device_id)  # type: ignore
-    device_id = os.getenv(ENV_DEVICE_ID)
+    device_id = os.getenv("DEVICE_ID")
     userdata.update(
         {
             USERDATA_PROPERTY_DEVICE_ID: device_id,
