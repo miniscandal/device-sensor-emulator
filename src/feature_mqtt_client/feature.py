@@ -11,35 +11,32 @@ environment variables."
 # pylint:disable=import-error
 # pylint:disable=missing-function-docstring
 
-import os
-
 from shared.feature_custom_mqtt_client.feature import CustomMqttClient
-from shared.constants.constants import ENV_MQTT_GENERAL_TOPIC_SUBSCRIBE
-from shared.constants.constants import ENV_MQTT_PRIVATE_TOPIC_SUBSCRIBE
-from shared.constants.constants import ENV_MQTT_BROKER_HOST
-from shared.constants.constants import ENV_MQTT_BROKER_PORT
-from shared.constants.constants import ENV_MQTT_BROKER_KEEPALIVE
-from shared.constants.constants import ENV_DEVICE_ID
+
 from shared.constants.constants import USERDATA_PROPERTY_DEVICE_ID
 
 
+from shared.constants.config import MQTT_BROKER_HOST
+from shared.constants.config import MQTT_BROKER_PORT
+from shared.constants.config import MQTT_BROKER_KEEPALIVE
+
+from shared.constants.config import DEVICE_ID
+
+from shared.constants.config import MQTT_TOPIC_BROADCAST
+from shared.constants.config import MQTT_TOPIC_DEVICE
+
+
 def connect(client: CustomMqttClient) -> CustomMqttClient:
-    host = os.getenv(ENV_MQTT_BROKER_HOST)
-    port = os.getenv(ENV_MQTT_BROKER_PORT)
-    keepalive = os.getenv(ENV_MQTT_BROKER_KEEPALIVE)
-    client.connect(host, int(port), int(keepalive))  # type: ignore
+    client.connect(MQTT_BROKER_HOST, MQTT_BROKER_PORT, MQTT_BROKER_KEEPALIVE)  # type: ignore
 
     return client
 
 
 def subscribe_topic(client: CustomMqttClient) -> CustomMqttClient:
-    general_topic = os.getenv(ENV_MQTT_GENERAL_TOPIC_SUBSCRIBE)
-    private_topic = os.getenv(ENV_MQTT_PRIVATE_TOPIC_SUBSCRIBE)
+    userdata = {USERDATA_PROPERTY_DEVICE_ID: DEVICE_ID}
 
-    userdata = {USERDATA_PROPERTY_DEVICE_ID: os.getenv(ENV_DEVICE_ID)}
-
-    client.subscribe(general_topic)  # type: ignore
-    client.subscribe(private_topic)  # type: ignore
+    client.subscribe(MQTT_TOPIC_BROADCAST)  # type: ignore
+    client.subscribe(MQTT_TOPIC_DEVICE)  # type: ignore
     client.user_data_set(userdata=userdata)
 
     return client
